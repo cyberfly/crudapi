@@ -93,7 +93,7 @@ class UserController extends AdminController
      *
      * @param UpdateUserRequest $request
      * @param  int $id
-     * @return UserResource
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateUserRequest $request, $id)
     {
@@ -122,7 +122,7 @@ class UserController extends AdminController
      *
      * @param  int $id
      * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id, Request $request)
     {
