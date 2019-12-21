@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     const TYPES = [
         'a' => 'ADMINISTRATOR',
-        'user' => 'USER',
+        'u' => 'USER',
     ] ;
 
     public function isAdmin()
