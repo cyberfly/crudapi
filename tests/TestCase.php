@@ -19,7 +19,7 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->admin_user = factory(User::class)->make([
+        $this->admin_user = factory(User::class)->create([
             'type' => 'a',
         ]);
     }
