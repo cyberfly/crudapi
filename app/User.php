@@ -38,6 +38,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Default value
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'type' => 'u',
+    ];
+
     const TYPES = [
         'a' => 'ADMINISTRATOR',
         'u' => 'USER',
