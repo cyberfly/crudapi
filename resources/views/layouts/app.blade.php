@@ -38,6 +38,10 @@
                                 </li>
 
                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.listings.index') }}">Manage Listing</a>
+                                </li>
+
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.passport.index') }}">Manage Passport</a>
                                 </li>
                             @endif

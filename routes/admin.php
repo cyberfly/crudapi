@@ -39,6 +39,21 @@ Route::name('admin.')->group(function () {
 
         Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
 
+        /*
+         * Listing routes
+         * */
+
+        Route::get('listings', 'ListingController@index')->name('listings.index');
+        Route::get('listings/create', 'ListingController@create')->name('listings.create');
+        Route::get('listings/{listing}', 'ListingController@show')->name('listings.show');
+        Route::get('listings/{listing}/edit', 'ListingController@edit')->name('listings.edit');
+
+        Route::post('listings', 'ListingController@store')->name('listings.store');
+
+        Route::put('listings/{listing}', 'ListingController@update')->name('listings.update');
+
+        Route::delete('listings/{listing}', 'ListingController@destroy')->name('listings.destroy');
+
     });
     
 });

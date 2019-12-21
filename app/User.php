@@ -78,4 +78,12 @@ class User extends Authenticatable
         return null;
     }
 
+    /*
+     * Relationships
+     * */
+
+    public function listings()
+    {
+        return $this->hasMany(Listing::class, 'submitter_id', 'id');
+    }
 }
