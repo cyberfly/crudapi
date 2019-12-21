@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'type'
     ];
 
     /**
@@ -37,4 +37,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    const TYPES = [
+        'a' => 'ADMINISTRATOR',
+        'user' => 'USER',
+    ] ;
+
+    public function isAdmin()
+    {
+        if ($this->type === 'a') {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * get full name for type
+     * @param $value
+     * @return mixed
+     */
+    public function getTypeNameAttribute($value)
+    {
+        if ($this->type) {
+
+            if (isset(User::TYPES[$this->type])) {
+                return User::TYPES[$this->type];
+            }
+        }
+
+        return null;
+    }
+
 }
