@@ -11,9 +11,11 @@
 |
 */
 
+use App\Http\Middleware\CheckAdmin;
+
 Route::name('admin.')->group(function () {
 
-    Route::prefix('admin')->group(function () {
+    Route::prefix('admin')->middleware('auth', CheckAdmin::class)->group(function () {
 
         /*
          * Laravel Passport custom routes
