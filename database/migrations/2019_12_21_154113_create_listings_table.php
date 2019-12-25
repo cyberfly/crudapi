@@ -17,8 +17,8 @@ class CreateListingsTable extends Migration
             $table->bigIncrements('id');
             $table->string('list_name', 80);
             $table->string('address');
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->decimal('latitude', 10, 7);
+            $table->decimal('longitude', 10, 7);
             $table->unsignedBigInteger('submitter_id')->index();
             $table->foreign('submitter_id')->references('id')->on('users');
             $table->timestamps();
