@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\JsonMiddleware;
 use Illuminate\Http\Request;
 
 /*
@@ -15,4 +16,25 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::namespace('Api')->middleware(JsonMiddleware::class)->group(function () {
+
+    // Login routes
+    Route::post('login', 'LoginController@login');
+
+    // authenticated routes
+
+    Route::middleware('auth:api')->group(function () {
+
+        // Log out
+
+        Route::post('logout', 'LoginController@logout');
+
+        // current user info
+
+        Route::get('me', 'LoginController@me');
+
+    });
+
 });
