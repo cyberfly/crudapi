@@ -18,10 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::namespace('Api')->middleware(JsonMiddleware::class)->group(function () {
+Route::name('api.')->namespace('Api')->middleware(JsonMiddleware::class)->group(function () {
 
     // Login routes
-    Route::post('login', 'LoginController@login');
+    Route::post('login', 'LoginController@login')->name('auth.login');
 
     // authenticated routes
 
@@ -29,24 +29,24 @@ Route::namespace('Api')->middleware(JsonMiddleware::class)->group(function () {
 
         // Log out
 
-        Route::post('logout', 'LoginController@logout');
+        Route::post('logout', 'LoginController@logout')->name('auth.logout');
 
         // current user info
 
-        Route::get('me', 'LoginController@me');
+        Route::get('me', 'LoginController@me')->name('auth.me');
 
         // Listings routes
 
-        Route::get('listings', 'ListingController@index');
-//        Route::get('listings/create', 'ListingController@create');
-//        Route::get('listings/{listing}', 'ListingController@show');
-//        Route::get('listings/{listing}/edit', 'ListingController@edit');
+        Route::get('listings', 'ListingController@index')->name('listings.index');
+//        Route::get('listings/create', 'ListingController@create')->name('listings.create');
+//        Route::get('listings/{listing}', 'ListingController@show')->name('listings.show');
+//        Route::get('listings/{listing}/edit', 'ListingController@edit')->name('listings.edit');
 //
-//        Route::post('listings', 'ListingController@store');
+//        Route::post('listings', 'ListingController@store')->name('listings.store');
 
-        Route::put('listings/{listing}', 'ListingController@update');
+        Route::put('listings/{listing}', 'ListingController@update')->name('listings.update');
 
-//        Route::delete('listings/{listing}', 'ListingController@destroy');
+//        Route::delete('listings/{listing}', 'ListingController@destroy')->name('listings.destroy');
 
     });
 
