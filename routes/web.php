@@ -18,3 +18,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/minionids', function () {
+
+    $minion_id_generator = new \App\Jobs\MinionIdGenerator();
+
+    $key_indexes = [
+        0, 1, 2, 3, 100, 139, 10000, 15000
+    ];
+
+    for ($i = 0; $i < sizeof($key_indexes); $i++) {
+
+        $key_index = $key_indexes[$i];
+
+
+        echo 'Inputs: (int) n = ' . $key_index . '<br> Output: (string) = ' .$minion_id_generator->handle($key_index);
+        echo '<br>';
+        echo '--';
+        echo '<br>';
+    }
+
+});
