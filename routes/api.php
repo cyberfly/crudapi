@@ -35,6 +35,10 @@ Route::namespace('Api')->middleware(JsonMiddleware::class)->group(function () {
 
         Route::get('me', 'LoginController@me');
 
+        // Listings routes
+
+        Route::get('listings', 'ListingController@index');
+
     });
 
 });
