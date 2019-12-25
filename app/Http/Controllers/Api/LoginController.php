@@ -36,7 +36,9 @@ class LoginController extends ApiController
 
         $logged_in_time = now();
 
-        return (new UserResource($user))->additional(['token' => $token, 'logged_in_time' => $logged_in_time]);
+        $status = [ 'code' => 200, 'message' => 'Access Granted' ];
+
+        return (new UserResource($user))->additional(['token' => $token, 'status' => $status, 'logged_in_time' => $logged_in_time]);
     }
 
     /**
