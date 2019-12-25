@@ -31,9 +31,15 @@ vendor/bin/phpunit
 
 - Please update APP_URL in .env and .env.testing
 
-## Documentation
+## API Documentation
 
 - [Postman API endpoint documentation](https://documenter.getpostman.com/view/1035812/SWLZeq5f?version=latest)
 - [Postman API endpoint collection](https://www.getpostman.com/collections/652bf0a887f75eae8fd4)
+
+## Minion?
+
+```
+http://crudapi.test/minionids
+```
 
 
