@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Filters\ListingFilter;
+use App\Http\Requests\Listing\Api\UpdateListingRequest;
 use App\Http\Resources\ListingCollection;
+use App\Http\Resources\ListingResource;
 use App\Listing;
 use Illuminate\Http\Request;
 
@@ -32,5 +33,25 @@ class ListingController extends ApiController
         $status = [ 'code' => 200, 'message' => 'Listing successfully retrieved' ];
 
         return (new ListingCollection($listings))->additional(['status' => $status]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param UpdateListingRequest $request
+     * @param $id
+     * @return ListingResource
+     */
+    public function update(UpdateListingRequest $request, $id)
+    {
+        $listing = $this->listing->findOrFail($id);
+
+        $listing->update($request->all());
+
+        $listing->refresh();
+
+        $status = [ 'code' => 200, 'message' => 'Listing successfully updated' ];
+
+        return (new ListingResource($listing))->additional(['status' => $status]);
     }
 }

@@ -38,6 +38,15 @@ Route::namespace('Api')->middleware(JsonMiddleware::class)->group(function () {
         // Listings routes
 
         Route::get('listings', 'ListingController@index');
+//        Route::get('listings/create', 'ListingController@create');
+//        Route::get('listings/{listing}', 'ListingController@show');
+//        Route::get('listings/{listing}/edit', 'ListingController@edit');
+//
+//        Route::post('listings', 'ListingController@store');
+
+        Route::put('listings/{listing}', 'ListingController@update');
+
+//        Route::delete('listings/{listing}', 'ListingController@destroy');
 
     });
 
