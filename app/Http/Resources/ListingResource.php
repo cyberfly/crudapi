@@ -20,6 +20,7 @@ class ListingResource extends JsonResource
             "address" => $this->address,
             "latitude" => $this->latitude,
             "longitude" => $this->longitude,
+            "distance" => (float)number_format($this->distance, 3),
             "submitter_id" => $this->submitter_id,
             "created_at" => (string)$this->created_at,
             "updated_at" => (string)$this->updated_at,
